@@ -9,7 +9,7 @@ const app = express()
 env.config()
 
 app.use(cors({
-    origin: '*'
+    origin: '*',
 }))
 app.use(bodyParser.json())
 
