@@ -8,7 +8,9 @@ const app = express()
 
 env.config()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://hapi-gpt-vercel.vercel.app'
+}))
 app.use(bodyParser.json())
 
 
