@@ -48,7 +48,7 @@ app.post('/', async (req, res)=>{
 
     try{
         const response = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
+            model: "text-davinci-003",
             messages: curMsg,
           });
         res.json({message: response.data.choices[0].message.content})
