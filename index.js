@@ -44,7 +44,7 @@ app.post('/', async (req, res)=>{
     //convert json naming to openai naming
     let curMsg = [{role: "system", content: "A curious therapist that asks questions"}]
     console.log({hapi})
-    curMsg=curMsg.concat({role: "user", content: hapi.slice(-1)[0].message})
+    //curMsg=curMsg.concat({role: "user", content: hapi.slice(-1)[0].message})
 
     try{
         const response = await openai.createChatCompletion({
