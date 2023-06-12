@@ -38,14 +38,21 @@ app.post('/', async (req, res)=>{
     const {hapi} = req.body
     // console.log("message")
     // console.log({message})
-    console.log("hapi")
-    console.log({hapi})
+    //console.log("hapi")
+    //console.log({hapi})
 
     //convert json naming to openai naming
     let curMsg = [{role: "system", content: "A curious therapist that asks questions"}]
-    console.log({hapi})
-    //curMsg=curMsg.concat({role: "user", content: hapi.slice(-1)[0].message})
+    var arrayLength = hapi.length
+    for (var i = 0; i < arrayLength; i++) {
 
+        if(hapi[i].sender == "user"){
+            curMsg=curMsg.concat({role: "user", content: hapi[i].message})
+        }else if(hapi[i].sender == "ai"){
+            curMsg=curMsg.concat({role: "assistant", content: hapi[i].message})
+        }
+    }
+    
     try{
         const response = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
