@@ -38,8 +38,8 @@ app.post('/', async (req, res)=>{
     const {hapi} = req.body
     // console.log("message")
     // console.log({message})
-    // console.log("hapi")
-    // console.log({hapi})
+    console.log("hapi")
+    console.log({hapi})
 
     //convert json naming to openai naming
     let curMsg = [{role: "system", content: "A curious therapist that asks questions"}]
